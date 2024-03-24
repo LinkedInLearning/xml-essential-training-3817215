@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<BusinessCards>
+	<BusinessCard>
+		<Name>John Doe</Name>
+		<phone type="mobile" primary="primary">(415) 555-4567</phone>
+		<phone type="work">(800) 555-9876</phone>
+		<phone type="fax">(510) 555-1234</phone>
+		<email>john@example.com</email>
+	</BusinessCard>   
+	<BusinessCard>
+		<Name>Jane Deaux</Name>
+		<phone type="mobile">(213) 555-1111</phone>
+		<phone type="work" primary="primary">(800) 555-6576</phone>
+		<phone type="fax">(213) 555-2222</phone>
+		<email>jane@example.org</email>
+	</BusinessCard>
+	<BusinessCard>
+		<Name>Jim Dough</Name>
+		<phone type="mobile">(415) 555-7070</phone>
+		<phone type="work" primary="primary">(800) 555-4321</phone>
+		<phone type="fax">(415) 555-9976</phone>
+		<email>jim@example.com</email>
+	</BusinessCard>
+	<BusinessCard>
+		<Name>Jean Doh</Name>
+		<phone type="mobile">(212) 555-0000</phone>
+		<phone type="home" primary="primary">(800) 555-2121</phone>
+		<phone type="work">(212) 555-3344</phone>
+		<email>jean@example.org</email>
+	</BusinessCard>
+</BusinessCards>

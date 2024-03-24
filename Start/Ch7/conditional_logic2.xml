@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="conditional_logic2.xslt"?>
+<items>
+	<item available="no">
+		<name>Autumn Mocha</name>
+		<type>Candles</type>
+		<photo>photos/candles.jpg</photo>
+	</item>
+	<item available="yes">
+		<name>Stone Bowl</name>
+		<type>Teacup</type>
+		<photo>photos/teacup.jpg</photo>
+	</item>
+	<item available="soon">
+		<name>Modern Porcelain</name>
+		<type>Teapot</type>
+		<photo>photos/teapot_white.jpg</photo>
+	</item>
+	<item available="yes">
+		<name>Traditional</name>
+		<type>Teapot</type>
+		<photo>photos/teapot_bone.jpg</photo>
+	</item>
+</items>

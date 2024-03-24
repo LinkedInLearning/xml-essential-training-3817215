@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Load External XML</title>
+        <script type="text/javascript">
+            async function loadXMLDoc(docURL) {
+                let doc = await fetch(docURL);
+                let response = await doc.text();
+                let xml = new DOMParser().parseFromString(response, "text/xml");
+                return xml;
+            }
+
+            function displayBusinessCardData() {
+                loadXMLDoc("businesscard.xml").then((xml) => {
+                    var bizCard = xml.getElementsByTagName("BusinessCard")[0];
+
+                    var name =
+                        "Name: " +
+                        bizCard.getElementsByTagName("Name")[0].firstChild.data;
+                    var email =
+                        "email: " +
+                        bizCard.getElementsByTagName("email")[0].firstChild
+                            .data;
+
+                    alert("BusinessCard Data: \n\n" + name + "\n" + email);
+                });
+            }
+
+            window.addEventListener("load", function () {
+                document
+                    .getElementById("showBCardData")
+                    .addEventListener("click", displayBusinessCardData);
+            });
+        </script>
+        <link rel="stylesheet" href="businesscard.css" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <button id="showBCardData">Show Business Card Data</button>
+    </body>
+</html>

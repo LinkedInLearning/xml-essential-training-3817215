@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<BusinessCard>
+	<Name>Joe Marini</Name>
+	<phone type="mobile">(415) 555-4567</phone>
+	<phone type="work">(800) 555-9876</phone>
+	<phone type="fax">(510) 555-1234</phone>
+	<email>joe@joe.com</email>
+</BusinessCard>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- declare a simpleType that contains a pattern restriction for prices -->
+    <xsd:simpleType name="PriceRestriction">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d+\.\d{1,2}" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- The root tag is productlist -->
+    <xsd:element name="productlist">
+        <xsd:complexType>
+            <!-- productlist is a sequence of one or more product tags -->
+            <xsd:sequence>
+                <xsd:element name="product" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <!-- use xsd:all to indicate that all the following tags must be present -->
+                        <xsd:all>
+                            <!-- the name tag has text content and a boolean 'instock' attribute -->
+                            <xsd:element name="name">
+                                <xsd:complexType mixed="true">
+                                    <xsd:attribute name="instock">
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:boolean"></xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:attribute>
+                                </xsd:complexType>
+                            </xsd:element>
+
+                            <!-- price has a 'currency' attribute and is restricted to a price pattern -->
+                            <xsd:element name="price">
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="PriceRestriction">
+                                            <xsd:attribute name="currency">
+                                                <xsd:simpleType>
+                                                    <xsd:restriction base="xsd:string">
+                                                        <xsd:enumeration value="USD"></xsd:enumeration>
+                                                        <xsd:enumeration value="CAD"></xsd:enumeration>
+                                                        <xsd:enumeration value="EUR"></xsd:enumeration>
+                                                        <xsd:enumeration value="JPY"></xsd:enumeration>
+                                                    </xsd:restriction>
+                                                </xsd:simpleType>
+                                            </xsd:attribute>        
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:all>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

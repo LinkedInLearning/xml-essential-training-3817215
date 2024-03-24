@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="businesscard_CSS2.css"?>
+
+<BusinessCards>
+	<BusinessCard>
+		<Name>Joe Marini</Name>
+		<phone type="mobile" primary="primary">(415) 555-4567</phone>
+		<phone type="work">(800) 555-9876</phone>
+		<phone type="fax">(510) 555-1234</phone>
+		<email>joe@joe.com</email>
+	</BusinessCard>
+   
+	<BusinessCard>
+		<Name>Someone Else</Name>
+		<phone type="mobile">(415) 555-0000</phone>
+		<phone type="work" primary="primary">(800) 555-1111</phone>
+		<phone type="fax">(510) 555-2222</phone>
+		<email>someone@else.com</email>
+	</BusinessCard>
+</BusinessCards>

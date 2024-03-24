@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- Declare the root-level BusinessCard element -->
+    <xsd:element name="BusinessCard">
+        <!-- BusinessCard is a complex type that contains other elements -->
+        <xsd:complexType>
+            <!-- We want the name, phone, and email tags to appear in that order -->
+            <xsd:sequence>
+                <!-- Name is just a simple tag that contains a string -->
+                <xsd:element name="Name" type="xsd:string" />
+
+                <!-- phone is a complex tag that has text content and an attribute -->
+                <!-- it can also appear many times, but there has to be at least 1 -->
+                <xsd:element name="phone" maxOccurs="unbounded">
+                    <xsd:complexType mixed="true">
+                        <xsd:attribute name="type" use="required">
+                            <xsd:simpleType>
+                                <!-- The type attribute must be mobile, work, or home -->
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:enumeration value="mobile" />
+                                    <xsd:enumeration value="work" />
+                                    <xsd:enumeration value="home" />
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:attribute>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <!-- email is optional and can appear at most once -->
+                <xsd:element name="email" minOccurs="0" maxOccurs="1">
+                    <xsd:simpleType>
+                        <!-- we can use the restriction with a patter to enforce an email -->
+                        <xsd:restriction base="xsd:string">
+                            <xsd:pattern value="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

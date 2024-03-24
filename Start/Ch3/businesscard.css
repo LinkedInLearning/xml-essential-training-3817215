@@ -1,0 +1,10 @@
+BusinessCard {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #DACFE5;
+	width: 300px;
+	display: block;
+	padding: 10pt;
+	border: 1px solid #0D3427;
+	margin: 5px;
+	text-align: left;
+}

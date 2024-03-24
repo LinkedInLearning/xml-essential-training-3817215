@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productlist>
+    <product>
+        <name instock="true">Product 1</name>
+        <price currency="USD">200.00</price>
+    </product>
+    <product>
+        <name instock="true">Product 2</name>
+        <price currency="EUR">300.00</price>
+    </product>
+    <product>
+        <name instock="false">Product 3</name>
+        <price currency="CAD">400.00</price>
+    </product>
+</productlist>

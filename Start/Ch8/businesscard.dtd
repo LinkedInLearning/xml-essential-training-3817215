@@ -1,0 +1,11 @@
+﻿<!-- The BusinessCard contains name, phone, email tags -->
+
+
+<!-- The Name can have character data in it -->
+
+
+<!-- The phone can have character data in it and a type attribute -->
+<!-- The type attribute must be mobile, work, or home -->
+
+
+<!-- The email tag can have character data in it -->

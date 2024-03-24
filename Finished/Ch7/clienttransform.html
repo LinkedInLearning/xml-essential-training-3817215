@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Our Products</title>
+        <style>
+            h1 {
+                color: #0d3427;
+            }
+            img {
+                margin: 0px 10px 0px 10px;
+            }
+            body {
+                background-color: #dacfe5;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            table {
+                border: 1px solid gray;
+                border-spacing: 0;
+            }
+            th {
+                font-size: 18pt;
+                border-bottom: 1px solid gray;
+            }
+            tbody {
+                font-size: 15pt;
+            }
+            td {
+                padding: 10pt;
+            }
+        </style>
+        <script>
+            async function loadXMLDocument(docURL) {
+                let result = await fetch(docURL);
+                let response = await result.text();
+                let doc = new DOMParser().parseFromString(response, "text/xml");
+                return doc;
+            }
+
+            async function loadProducts() {
+                // Load the XML and XSLT documents
+                xml = await loadXMLDocument("clienttransform.xml");
+                xsl = await loadXMLDocument("clienttransform.xslt");
+
+                // Create an XSLTProcessor object to perform the transform
+                processor = new XSLTProcessor();
+                processor.importStylesheet(xsl);
+
+                // Create and return an HTML fragment we can add to the doc
+                list = processor.transformToFragment(xml, document);
+                return list;
+            }
+
+            window.addEventListener("load", (e) => {
+                loadProducts()
+                    .then(list => document.getElementById("productlist").append(list));
+            });
+        </script>
+    </head>
+    <body>
+        <h1><img src="photos/javaco_tea_logo.gif" /> Our Products:</h1>
+        <div id="productlist">
+        </div>
+    </body>
+</html>

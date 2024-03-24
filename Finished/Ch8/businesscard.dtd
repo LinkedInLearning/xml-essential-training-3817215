@@ -1,0 +1,13 @@
+﻿<!-- The BusinessCard contains name, phone, email tags -->
+<!ELEMENT BusinessCard (Name, phone+, email?)>
+
+<!-- The Name can have character data in it -->
+<!ELEMENT Name (#PCDATA)>
+
+<!-- The phone can have character data in it and a type attribute -->
+<!-- The type attribute must be mobile, work, or home -->
+<!ELEMENT phone (#PCDATA)>
+<!ATTLIST phone type (mobile | work | home) #REQUIRED>
+
+<!-- The email tag can have character data in it -->
+<!ELEMENT email (#PCDATA)>

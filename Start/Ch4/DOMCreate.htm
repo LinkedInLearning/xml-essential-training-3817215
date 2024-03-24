@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Content with the DOM</title>
+        <script type="text/javascript">
+            function displayBusinessCardData() {
+                var xmldata1 = document.getElementById("xmldata1");
+                var bizCard = xmldata1.getElementsByTagName("BusinessCard")[0];
+
+                var name =
+                    "Name: " +
+                    bizCard.getElementsByTagName("Name")[0].firstChild.data;
+                var email =
+                    "email: " +
+                    bizCard.getElementsByTagName("email")[0].firstChild.data;
+
+                alert("BusinessCard Data: \n\n" + name + "\n" + email);
+            }
+            
+            function createBusinessCardData() {
+                var xmldata1 = document.getElementById("xmldata1");
+
+                // Create the BusinessCard tag
+
+                // Create the Name element and text
+
+                // Create the email element and text
+
+                // Add everything to our XML tag
+
+            }
+
+            window.addEventListener("load", function () {
+                document
+                    .getElementById("showBCardData")
+                    .addEventListener("click", displayBusinessCardData);
+                document
+                    .getElementById("makeBCardData")
+                    .addEventListener("click", createBusinessCardData);
+            });
+        </script>
+        <link rel="stylesheet" href="businesscard.css" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <button id="makeBCardData">Create Business Card Data</button>
+        <button id="showBCardData">Show Business Card Data</button>
+
+        <xml id="xmldata1"></xml>
+    </body>
+</html>

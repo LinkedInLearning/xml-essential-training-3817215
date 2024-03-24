@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Using XPath</title>
+        <script type="text/javascript">
+            var BusinessCard;
+
+            async function loadXMLDoc(docURL) {
+                let doc = await fetch(docURL);
+                let response = await doc.text();
+                let xml = new DOMParser().parseFromString(response, "text/xml");
+                return xml;
+            }
+
+            function showCardData() {
+                var nameexpr = "/BusinessCard/Name";
+                var emailexpr = "/BusinessCard/email";
+
+                // ADD CODE HERE
+
+                alert("BusinessCard Data: \n\n" + name + "\n" + email);
+            }
+
+            window.addEventListener("load", (evt) => {
+                loadXMLDoc("businesscard.xml").then(xml => BusinessCard = xml);
+
+                document.getElementById("showBCardData").addEventListener("click", () => {
+                    showCardData();
+                });
+            });
+        </script>
+        <link rel="stylesheet" href="businesscard.css" />
+        <link rel="stylesheet" href="styles.css" />    
+    </head>
+    <body>
+        <button id="showBCardData">Show Business Card Data</button>
+    </body>
+</html>

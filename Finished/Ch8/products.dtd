@@ -1,0 +1,7 @@
+<!ELEMENT productlist (product+)>
+<!ELEMENT product (name, price)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+
+<!ATTLIST name instock (true | false) #REQUIRED>
+<!ATTLIST price currency (USD | CAD | EUR | JPY) #REQUIRED>

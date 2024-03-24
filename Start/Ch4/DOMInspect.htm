@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inspect Content with the DOM</title>
+        <script type="text/javascript">
+            function displayBusinessCardData() {
+                var xmldata1; 
+                var bizCard;
+
+                var name;
+                var email;
+
+                alert("BusinessCard Data: \n\n" + name + "\n" + email);
+            }
+            
+            window.addEventListener("load", function () {
+                document
+                    .querySelector("#showBCardData")
+                    .addEventListener("click", displayBusinessCardData);
+            });
+        </script>
+    </head>
+    <body>
+        <xml id="xmldata1" style="display: none">
+            <BusinessCard>
+                <Name>Joe Marini</Name>
+                <phone type="mobile">(415) 555-4567</phone>
+                <phone type="work">(800) 555-9876</phone>
+                <phone type="fax">(510) 555-1234</phone>
+                <email>joe@joe.com</email>
+            </BusinessCard>
+        </xml>
+        <button id="showBCardData">Show Business Card Data</button>
+    </body>
+</html>

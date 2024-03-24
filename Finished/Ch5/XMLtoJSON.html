@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Convert XML to JSON</title>
+        <script type="text/javascript">
+            async function loadXMLDoc(docURL) {
+                let doc = await fetch(docURL);
+                let response = await doc.text();
+                let xml = new DOMParser().parseFromString(response, "text/xml");
+                return xml;
+            }
+
+            // create an object from XML. That object can then be turned into JSON
+            // by using the JSON.stringify() function
+            function convertXmlToJSON(xmlObj) {
+                // this is the base object that will hold the data from the XML
+                let obj = {};
+
+                // loop over all the child nodes in the XML object
+                if (xmlObj.children.length > 0) {
+                    for (let i = 0; i < xmlObj.children.length; i++) {
+                        let item = xmlObj.children.item(i);
+                        let nodeName = item.nodeName;
+
+                        // if the current element hasn't yet been added to the object,
+                        // create a new property on the object and process all its child nodes
+                        if (typeof obj[nodeName] == "undefined") {
+                            obj[nodeName] = convertXmlToJSON(item);
+                        } 
+                        else {
+                            // otherwise, we might have an element that already exists in the object,
+                            // so we need to convert it to an array to hold multiple tags with the same name
+                            if (typeof obj[nodeName].push == "undefined") {
+                                let currentNode = obj[nodeName];
+
+                                obj[nodeName] = [];
+                                obj[nodeName].push(currentNode);
+                            }
+                            // if there's already a list of elements with the same name in place, just
+                            // add this one to that list
+                            obj[nodeName].push(convertXmlToJSON(item));
+                        }
+                    }
+                } 
+                else {
+                    // if there aren't any child tags, just get the text content and add that to the object
+                    obj = xmlObj.textContent;
+                }
+                return obj;
+            }
+
+            function convertXML() {
+                loadXMLDoc("businesscard.xml")
+                .then(doc => {
+                    let obj = convertXmlToJSON(doc);
+                    document.getElementById("JSONContainer").textContent = JSON.stringify(obj,null, 3);
+                });
+            }
+
+            window.addEventListener("load", function () {
+                document
+                    .getElementById("convertXML")
+                    .addEventListener("click", convertXML);
+            });
+        </script>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <button id="convertXML">Convert XML to JSON</button>
+        <pre id="JSONContainer"></pre>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Using XPath</title>
+        <script type="text/javascript">
+            async function loadXMLDoc(docURL) {
+                let doc = await fetch(docURL);
+                let response = await doc.text();
+                let xml = new DOMParser().parseFromString(response, "text/xml");
+                return xml;
+            }
+
+            function createNameSection(currentCard) {
+                var nameSection = document.createElement("div");
+                nameSection.setAttribute("class", "Name");
+                var nameStr = document.createTextNode(
+                    currentCard.getElementsByTagName("Name")[0].firstChild.data
+                );
+                nameSection.appendChild(nameStr);
+                return nameSection;
+            }
+
+            function createEmailSection(currentCard) {
+                var emailSect = document.createElement("div");
+                emailSect.setAttribute("class", "email");
+                var emailStr = document.createTextNode(
+                    "email: " +
+                        currentCard.getElementsByTagName("email")[0].firstChild
+                            .data
+                );
+                emailSect.appendChild(emailStr);
+                return emailSect;
+            }
+
+            function createCardElement() {
+                // get references to the data island and the array of business cards
+                loadXMLDoc("businesscards.xml").then((xmlData) => {
+                    var expr = "//BusinessCard[phone[@primary][starts-with(text(),'(800)')]]";
+                    // var expr = "//BusinessCard[Name[contains(text(),'Do')]]";
+                    
+                    // ADD CODE HERE
+                });
+            }
+
+            window.addEventListener("load", function () {
+                document
+                    .getElementById("createCard")
+                    .addEventListener("click", createCardElement);
+            });
+        </script>
+        <link rel="stylesheet" href="businesscard.css" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <button id="createCard">Create Business Card Element</button>
+        <div id="cardContainer"></div>
+    </body>
+</html>

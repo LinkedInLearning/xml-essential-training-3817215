@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inspect Content with the DOM</title>
+        <script type="text/javascript">
+            function displayBusinessCardData() {
+                var xmldata1 = document.getElementById("xmldata1");
+                var bizCard = xmldata1.getElementsByTagName("BusinessCard")[0];
+
+                var name =
+                    "Name: " +
+                    bizCard.getElementsByTagName("Name")[0].firstChild.data;
+                var email =
+                    "email: " +
+                    bizCard.getElementsByTagName("email")[0].firstChild.data;
+
+                alert("BusinessCard Data: \n\n" + name + "\n" + email);
+            }
+
+            window.addEventListener("load", function () {
+                document
+                    .getElementById("showBCardData")
+                    .addEventListener("click", displayBusinessCardData);
+            });
+        </script>
+        <link href="styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <xml id="xmldata1">
+            <BusinessCard>
+                <Name>Joe Marini</Name>
+                <phone type="mobile">(415) 555-4567</phone>
+                <phone type="work">(800) 555-9876</phone>
+                <phone type="fax">(510) 555-1234</phone>
+                <email>joe@joe.com</email>
+            </BusinessCard>
+        </xml>
+        <button id="showBCardData">Show Business Card Data</button>
+    </body>
+</html>

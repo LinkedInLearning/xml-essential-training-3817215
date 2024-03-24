@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="productlist.xsd">
+    <product>
+        <name instock="true">Product 1</name>
+        <price>200.00</price>
+    </product>
+    <product>
+        <name instock="true">Product 2</name>
+        <price>300.00</price>
+    </product>
+    <product>
+        <name instock="false">Product 3</name>
+        <price>400.00</price>
+    </product>
+</productlist>

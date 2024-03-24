@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Programming Challenge: Transform XML</title>
+        <script type="text/javascript">
+            async function loadXMLDoc(docURL) {
+                let doc = await fetch(docURL);
+                let response = await doc.text();
+                let xml = new DOMParser().parseFromString(response, "text/xml");
+                return xml;
+            }
+
+            function createNameSection(currentCard) {
+                var nameSection = document.createElement("div");
+                nameSection.setAttribute("class", "Name");
+                var nameStr = document.createTextNode(
+                    currentCard.getElementsByTagName("Name")[0].firstChild.data
+                );
+                nameSection.appendChild(nameStr);
+                return nameSection;
+            }
+
+            function createPhones(currentCard) {
+                var phones = currentCard.getElementsByTagName("phone");
+
+                var phoneSect = document.createElement("div");
+                for (var j = 0; j < phones.length; j++) {
+                    newPhone = document.createElement("div");
+                    newPhone.setAttribute("class", "phone");
+                    var labelStr =
+                        currentCard
+                            .getElementsByTagName("phone")[j]
+                            .getAttribute("type") + ": ";
+                    var phoneStr = document.createTextNode(
+                        labelStr +
+                            currentCard.getElementsByTagName("phone")[j]
+                                .firstChild.data
+                    );
+                    newPhone.appendChild(phoneStr);
+                    phoneSect.appendChild(newPhone);
+                }
+                return phoneSect;
+            }
+
+            function createEmailSection(currentCard) {
+                var emailSect = document.createElement("div");
+                emailSect.setAttribute("class", "email");
+                var emailStr = document.createTextNode(
+                    "email: " +
+                        currentCard.getElementsByTagName("email")[0].firstChild
+                            .data
+                );
+                emailSect.appendChild(emailStr);
+                return emailSect;
+            }
+
+            function createBizCards(xmlData) {
+                document.getElementById("cardContainer").innerHTML="";
+                
+                // Your Code goes here
+            }
+
+            function createCardElements() {
+                // Your Code goes here
+                loadXMLDoc("challenge.xml").then(xml => createBizCards(xml));
+
+            }
+
+            window.addEventListener("load", function () {
+                document
+                    .getElementById("createCards1")
+                    .addEventListener("click", () => {
+                        createCardElements();
+                    });
+                    document
+                    .getElementById("createCards2")
+                    .addEventListener("click", () => {
+                        createCardElements();
+                    });
+            });
+        </script>
+        <link rel="stylesheet" href="businesscard.css" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <button id="createCards1">Create Primary Work Cards</button>
+        <button id="createCards2">Create Business Card Elements</button>
+        <div id="cardContainer"></div>
+    </body>
+</html>
