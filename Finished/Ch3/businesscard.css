@@ -31,3 +31,8 @@ email {
 	display: block;
 	margin-top: 3%;
 }
+
+email:before {content: "e-mail: "}
+
+phone:before {content: attr(type) ": "}
+phone[primary]:after {content: " (" attr(primary) ")"}
