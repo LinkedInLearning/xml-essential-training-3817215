@@ -15,7 +15,8 @@
 			</style>
 		</head>
 		<body>
-            <h1>Business Cards: <xsl:value-of select="count(BusinessCard)"/></h1>
+            <!-- Display the card count here -->
+            <h1>Business Cards: </h1>
             <table>
                 <thead>
                     <tr>
@@ -25,14 +26,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                <xsl:for-each select="BusinessCard">
-                <xsl:sort select="Name" order="ascending"/>
-                    <tr>
-                        <td><xsl:value-of select="Name"/></td>
-                        <td><xsl:value-of select="phone[@primary]"/></td>
-                        <td><xsl:value-of select="email"/></td>
-                    </tr>
-                </xsl:for-each>
+                    <!-- Your Code Goes Here-->
+
                 </tbody>
             </table>
         </body>
