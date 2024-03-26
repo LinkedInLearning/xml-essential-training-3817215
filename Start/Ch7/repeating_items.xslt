@@ -13,18 +13,7 @@
 		</head>
 		<body>
             <!-- define the loop and content for each item tag -->
-			<xsl:for-each select="item">
-				<h1>
-					<img>
-						<xsl:attribute name="src">
-							<xsl:value-of select="photo"/>
-						</xsl:attribute>
-					</img>
-					<xsl:value-of select="name"/>
-					<xsl:text>: </xsl:text>
-					<xsl:value-of select="type"/>
-				</h1>
-			</xsl:for-each>
+
 		</body>
 		</html>
 	</xsl:template>
