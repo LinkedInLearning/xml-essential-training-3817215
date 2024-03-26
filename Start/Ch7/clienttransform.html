@@ -41,12 +41,10 @@
                 xsl = await loadXMLDocument("clienttransform.xslt");
 
                 // Create an XSLTProcessor object to perform the transform
-                processor = new XSLTProcessor();
-                processor.importStylesheet(xsl);
 
+                
                 // Create and return an HTML fragment we can add to the doc
-                list = processor.transformToFragment(xml, document);
-                return list;
+
             }
 
             window.addEventListener("load", (e) => {
