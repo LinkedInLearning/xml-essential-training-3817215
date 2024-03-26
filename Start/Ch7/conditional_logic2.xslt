@@ -15,44 +15,16 @@
 		</head>
 		<body>
 			<xsl:for-each select="item">
-                <xsl:choose>
-                    <xsl:when test="@available = 'no'">
-                        <h1 class="unavail">
-                            <img>
-                                <xsl:attribute name="src">
-                                <xsl:value-of select="photo"/>
-                                </xsl:attribute>
-                            </img>
-                            <xsl:value-of select="name"/>
-                            <xsl:text> </xsl:text>
-                            <xsl:value-of select="type"/>
-                        </h1>
-                    </xsl:when>
-                    <xsl:when test="@available = 'soon'">
-                        <h1 class="soon">
-                            <img>
-                                <xsl:attribute name="src">
-                                <xsl:value-of select="photo"/>
-                                </xsl:attribute>
-                            </img>
-                            <xsl:value-of select="name"/>
-                            <xsl:text> </xsl:text>
-                            <xsl:value-of select="type"/>
-                        </h1>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <h1 class="avail">
-                            <img>
-                                <xsl:attribute name="src">
-                                <xsl:value-of select="photo"/>
-                                </xsl:attribute>
-                            </img>
-                            <xsl:value-of select="name"/>
-                            <xsl:text> </xsl:text>
-                            <xsl:value-of select="type"/>
-                        </h1>
-                    </xsl:otherwise>
-                </xsl:choose>
+                <h1 class="unavail">
+                    <img>
+                        <xsl:attribute name="src">
+                        <xsl:value-of select="photo"/>
+                        </xsl:attribute>
+                    </img>
+                    <xsl:value-of select="name"/>
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="type"/>
+                </h1>
 			</xsl:for-each>
 		</body>
 		</html>
