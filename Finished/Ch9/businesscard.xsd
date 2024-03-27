@@ -29,7 +29,7 @@
                 <!-- email is optional and can appear at most once -->
                 <xsd:element name="email" minOccurs="0" maxOccurs="1">
                     <xsd:simpleType>
-                        <!-- we can use the restriction with a patter to enforce an email -->
+                        <!-- we can use the restriction with a pattern to enforce an email -->
                         <xsd:restriction base="xsd:string">
                             <xsd:pattern value="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
                         </xsd:restriction>
