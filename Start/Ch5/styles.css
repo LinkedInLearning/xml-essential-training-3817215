@@ -1,0 +1,24 @@
+XML {display:none}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #FFFFFF;
+	margin: 5px;
+	text-align: left;
+	color: #523819;
+    font-size:18pt;
+}
+
+button {
+    font-size: 18pt;
+}
+
+#JSONContainer {
+    background-color: whitesmoke;
+    border: 1px solid #bdc3c7;
+    min-height: 400pt;
+    width: 50vw;
+    min-width: 400px;
+    margin-top: 10pt;
+    font-family: 'Courier New', Courier, monospace;
+}
