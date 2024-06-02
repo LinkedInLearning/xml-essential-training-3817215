@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript HTML DOM EventListener</title>
+    <style>
+        #myDiv{
+            background-color: orange;
+            color: white;
+            font-size: 20px;
+            padding: 50px;
+        }
+    </style>
+</head>
+<!-- 
+
+
+
+Click the button to remove the div's event handler.
+
+Remove
+ -->
+
+<body>
+    <h2>JavaScript removeEventListener()</h2>
+
+    <div id="myDiv">
+        <p>This div element has an onmousemove event handler that displays a random number every time you move your mouse inside this orange field.</p>
+        <p>Click the button to remove the div's event handler.</p>
+        <button id="myBtn" onclick="removeMyFunction()">Remove</button>
+    </div>
+
+    <p id="demo"></p>
+    <script>
+        var x = document.getElementById("myDiv");
+        x.addEventListener("mousemove", myFunction);
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML = Math.random();
+        }
+
+        function removeMyFunction() {
+            x.removeEventListener("mousemove", myFunction);
+        }
+    </script>
+</body>
+</html>
