@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript-Async</title>
 </head>
+<!-- 
+    
+Hello
+ -->
 <body>
+    <h2>JavaScript async / await</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        function Displayer(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+
+        async function myFunction() {
+            return "Hello";
+        }
+
+        myFunction.then(
+            function (value) {
+                
+            }
+        )
+    </script>
     
 </body>
 </html>
