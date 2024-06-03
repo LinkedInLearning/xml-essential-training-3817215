@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="businesscard.css" type="text/css"?>
 <BusinessCard>
 	<Name>Joe Marini</Name>
 	<phone type="mobile" primary="primary">(415) 555-4567</phone>
