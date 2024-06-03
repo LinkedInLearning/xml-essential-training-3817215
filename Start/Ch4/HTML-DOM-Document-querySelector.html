@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML-DOM-Document-querySelector</title>
+    <style>
+        a[target] {
+            background-color: yellow;
+        }
+    </style>
 </head>
+<!-- 
+The Document Object
+The querySelector() Method
+
+
+
+A h4 element
+ -->
 <body>
+    <h1>The Document Object</h1>
+    <h2>The querySelector() Method</h2>
+
+    <p>Select the first h3 or the first h4:</p>
     
+    <h3>A h3 element</h3>
+    <h4>A h4 element</h4>
+
+    <script>
+        document.querySelector("h3, h4").style.backgroundColor = "red";
+    </script>
 </body>
 </html>
