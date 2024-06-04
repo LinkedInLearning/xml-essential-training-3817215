@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript-Fetch-API</title>
+</head>
+<!-- 
+JavaScript Fetch API
+The fetch() Method
+Fetch API
+The Fetch API interface allows web browser to make HTTP requests to web servers.
+
+If you use the XMLHttpRequest Object, Fetch can do the same in a simpler way.
+
+
+ -->
+<body>
+    <h1>JavaScript Fetch API</h1>
+    <h2>The fetch() Method</h2>
+
+    <p id="demo">Fetch a file to change this text.</p>
+
+    <script>
+        async function getText(file) {
+            let newObject = await fetch(file);
+            let newText = await newObject.text();
+            document.getElementById("demo").innerHTML = newText;
+        }
+
+        getText("fetch_info.text");
+    </script>
+</body>
+</html>
