@@ -11,10 +11,24 @@
             }
 
             function createNameSection(currentCard) {
-
+                var nameSection = document.createElement("div");
+                nameSection.setAttribute("class", "Name");
+                var nameStr = document.createTextNode(
+                    currentCard.getElementsByTagName("Name")[0].firstchild.data
+                );
+                nameSection.appendChild(nameStr);
+                return nameSection;
             }
-
+            
             function createEmailSection(currentCard) {
+                var emailSect = document.createElement("div");
+                emailSect.setAttribute("class", "email");
+                var emailStr = document.createTextNode(
+                    "email: " +
+                    currentCard.getElementsByTagName("email")[0].firstchild.data
+                );
+                emailSect.appendChild(emailStr);
+                return emailSect;
 
             }
 
@@ -28,9 +42,12 @@
                     newCard.setAttribute("class", "BusinessCard");
 
                     // now create a <div> for the name
-
+                    var newName = createNameSection(xmlData);
+                    newCard.appendChild(newName);
                     // create a <div> for the email
-
+                    var newEmail = createEmailSection(xmlData);
+                    newCard.appendChild(newEmail);
+                    
                     // now add the new <div> containing the card info to the web page
                     document
                         .getElementById("cardContainer")

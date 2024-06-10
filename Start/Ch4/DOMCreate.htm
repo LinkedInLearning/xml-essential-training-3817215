@@ -21,13 +21,18 @@
                 var xmldata1 = document.getElementById("xmldata1");
 
                 // Create the BusinessCard tag
-
+                var bizCard = document.createElement("BusinessCard");
                 // Create the Name element and text
-
+                var nameTag = document.createElement("Name");
+                nameTag.appendChild(document.createTextNode("John Doe"));
+                bizCard.appendChild(nameTag);
                 // Create the email element and text
+                var emailTag = document.createElement("email");
+                emailTag.appendChild(document.createTextNode("john@example.com"));
+                bizCard.appendChild(emailTag);
 
                 // Add everything to our XML tag
-
+                xmldata1.appendChild(bizCard);
             }
 
             window.addEventListener("load", function () {

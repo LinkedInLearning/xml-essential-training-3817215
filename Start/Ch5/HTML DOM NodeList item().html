@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM NodeList item()</title>
+</head>
+<!--
+The NodeList Object
+The item() Method
+
+
+I am two.
+
+I am three.
+
+
+
+I am one.
+ -->
+<body>
+    <h1>The NodeList Object</h1>
+    <h2>The item() Method</h2>
+
+    <p>I am one.</p>
+    <p>I am two.</p>
+    <p>I am three.</p>
+    <p>The HTML content of the first p element in this document is:</p>
+    <p id="demo"></p>
+
+    <script>
+        const list = document.getElementsByTagName("p");
+        let textContent = list.item(0).innerHTML;
+
+        document.getElementById("demo").innerHTML = textContent;
+
+
+    </script>
+    
+
+
+     
+</body>
+</html>
