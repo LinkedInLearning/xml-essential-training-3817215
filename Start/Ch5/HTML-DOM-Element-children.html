@@ -5,7 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML-DOM-Element-children</title>
 </head>
+<!-- 
+The Element Object
+The children Property
+
+
+Change
+I am a h2 element
+I am a div element
+I am a span element
+ -->
 <body>
-    
+    <h1>The Element Object</h1>
+    <h2>The children Property</h2>
+
+    <p>Click "Change" to change the background of all child elements of body.</p>
+
+    <button onclick="myFunction()">Change</button>
+
+    <h2>I am a h2 element</h2>
+    <div>I am a Div element</div>
+    <span>I am a span element</span>
+
+    <script>
+        function myFunction() {
+            const collection = document.body.children;
+            for (let i = 0; i < collection.length; i++) {
+                collection[i].style.backgroundColor = "red";   
+            }
+        }
+    </script>
 </body>
 </html>
