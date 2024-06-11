@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-DOM-Element-tagName</title>
+    <!-- 
+        The Element Object
+The tagName Property
+
+
+This is a button
+This is span element.
+     -->
+</head>
+<body onclick="myFunction(event)">
+    <h1>The Element Object</h1>
+    <h2>The tagName Property</h2>
+
+    <p>Click on any elements in this document to see which element triggered the onclick event.</p>
+
+    <button>This a button</button>
+
+    <span>This a span</span>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction(event) {
+            const element = event.target;
+            document.getElementById("demo").innerHTML = element.tagName;
+        }
+    </script>
+</body>
+</html>
