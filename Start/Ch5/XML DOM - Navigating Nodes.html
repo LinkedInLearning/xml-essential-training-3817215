@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML DOM - Navigating Nodes</title>
+</head>
+<!--
+price
+-->
+<body>
+    <p id="demo"></p>
+
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                myFunction(this);
+            }
+        }
+        xhttp.open("GET", "books.xml", true);
+        xhttp.send();
+
+        function myFunction(xml) {
+            var xmlDoc = xml.responseXML;
+            var x = get_previousSibling(xmlDoc.getElementsByTagName("price")[0]);
+            document.getElementById("demo").innerHTML = x.nodeName;
+        }
+
+        function get_previousSibling(n) {
+            y = n.previousSibling;
+            while (y.nodeType != 1) {
+                y = y.previousSibling;
+            }
+            return y;
+        }
+    </script>
+</body>
+</html>
