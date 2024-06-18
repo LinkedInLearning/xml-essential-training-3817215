@@ -16,7 +16,7 @@ Removed: cover: paperback
     <p id="demo"></p>
 
     <script>
-        var xhttp = new XMLHttpRequest();
+        var xhttp  = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 myFunction(this);
@@ -26,19 +26,23 @@ Removed: cover: paperback
         xhttp.send();
 
         function myFunction(xml) {
-            var txt = "";
+            var text = "";
             var xmlDoc = xml.responseXML;
             var x = xmlDoc.getElementsByTagName("book");
             var xlen = x.length;
-            for (let i = 0; i < xlen; i++) {
-                while(x[i].attributes.length > 0) {
-                    var attnode = x[i].attributes[0];
-                    txt += attnode.nodeValue +"<br>";
-                }
-            }
 
-            console.log(txt);
-            
+
+            console.log(xlen);
+
+            for (let i = 0; i < xlen; i++) {
+                while (x[i].attributes.length > 0) {
+                    var attnode = x[i].attributes[0];
+                    var old_att = x[i].removeAttributeNode(attnode);
+                    text += `Removed: ${old_att.nodeName}: ${old_att.nodeValue} <br>`;
+                }
+                
+            }
+            document.getElementById("demo").innerHTML = text;
         }
     </script>
 </body>
