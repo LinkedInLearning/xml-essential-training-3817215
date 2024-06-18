@@ -6,9 +6,32 @@
     <title>XML-DOM-Create-Nodes</title>
 </head>
 <!-- 
-
+Revised April 2015
 -->
 <body>
+    <p id="demo"></p>
+
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                myFunction(this);
+            }
+        }
+        xhttp.open("GET", "books.xml", true);
+        xhttp.send();
+
+        function myFunction(xml) {
+            var xmlDoc = xml.responseXML;
+            var newComment = xmlDoc.createComment("Revised April 2015");
+            var x = xmlDoc.getElementsByTagName("book")[0];
+            x.appendChild(newComment);
+            var y = x.lastChild;
+
+            console.log(`${y.nodeValue}`);
+        }
+
+    </script>
     
 </body>
 </html>
