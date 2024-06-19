@@ -9,5 +9,20 @@
   The XMLHttpRequest Object
 Get my CD collection 
   -->
-  <body></body>
+  <body>
+    <button type="button" onclick="loadDoc()">Get my CD collection</button>
+    <br /><br />
+    <table id="demo"></table>
+
+    <script>
+      function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+          myFunction(this);
+        };
+        xhttp.open("GET", "books.xml", true);
+        xhttp.send();
+      }
+    </script>
+  </body>
 </html>
