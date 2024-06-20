@@ -4,16 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS BORDER COLLAPSE</title>
+    <link rel="stylesheet" href="style_CSS border-collapse Property.css" />
+    <script src="script_CSS BORDER COLLAPSE.js"></script>
   </head>
   <!-- 
-border-collapse: separate (default):
-Firstname	Lastname
-Peter	Griffin
-Lois	Griffin
-border-collapse: collapse:
-Firstname	Lastname
-Peter	Griffin
-Lois	Griffin
+
+Month	Savings
+January	$100
+February	$150
+
+Return border collapse
 -->
-  <body></body>
+  <body>
+    <table id="myTable" style="border-collapse: collapse">
+      <table>
+        <tr>
+          <th>Month</th>
+          <th>Savings</th>
+        </tr>
+        <tr>
+          <td>January</td>
+          <td>€100</td>
+        </tr>
+        <tr>
+          <td>February</td>
+          <td>€150</td>
+        </tr>
+      </table>
+    </table>
+    <br /><br />
+    <button type="button" onclick="myValue()">Return border collapse</button>
+  </body>
 </html>
