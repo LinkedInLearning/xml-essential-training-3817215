@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX XML Example</title>
+  </head>
+  <!--
+  The XMLHttpRequest Object
+Get my CD collection 
+  -->
+  <body>
+    <button type="button" onclick="loadDoc()">Get my CD collection</button>
+    <br /><br />
+    <table id="demo"></table>
+
+    <script>
+      function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+          myFunction(this);
+        };
+        xhttp.open("GET", "books.xml", true);
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>
