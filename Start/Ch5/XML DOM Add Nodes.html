@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XML DOM Add Nodes</title>
+  </head>
+  <!-- 
+Everyday Italian
+Easy Everyday Italian
+-->
+  <body>
+    <p id="demo"></p>
+
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          myFunction(this);
+        }
+      };
+      xhttp.open("GET", "books.xml", true);
+      xhttp.send();
+
+      function myFunction(xml) {
+        var xmlDoc = xml.responseXML;
+        var x = xmlDoc.getElementsByTagName("title")[0];
+        var textNode = x.childNodes[0].nodeValue;
+        x.childNodes[0].insertData(0, "easy ");
+        var textNodeNew = x.childNodes[0].nodeValue;
+
+        console.log(`${textNode}<br>
+        ${textNodeNew}`);
+        document.getElementById("demo").innerHTML = `${textNode}<br>
+        ${textNodeNew}`;
+      }
+    </script>
+  </body>
+</html>

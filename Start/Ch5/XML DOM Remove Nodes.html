@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML DOM Remove Nodes</title>
+<!-- 
+Removed: category: cooking
+Removed: category: children
+Removed: category: web
+Removed: category: web
+Removed: cover: paperback
+ -->
+</head>
+<body>
+    <p id="demo"></p>
+
+    <script>
+        var xhttp  = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                myFunction(this);
+            }
+        }
+        xhttp.open("GET", "books.xml", true);
+        xhttp.send();
+
+        function myFunction(xml) {
+            var text = "";
+            var xmlDoc = xml.responseXML;
+            var x = xmlDoc.getElementsByTagName("book");
+            var xlen = x.length;
+
+
+            console.log(xlen);
+
+            for (let i = 0; i < xlen; i++) {
+                while (x[i].attributes.length > 0) {
+                    var attnode = x[i].attributes[0];
+                    var old_att = x[i].removeAttributeNode(attnode);
+                    text += `Removed: ${old_att.nodeName}: ${old_att.nodeValue} <br>`;
+                }
+                
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+    </script>
+</body>
+</html>
