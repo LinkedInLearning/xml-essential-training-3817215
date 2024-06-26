@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XML DOM Clone Nodes</title>
+  </head>
+  <!-- 
+  Everyday Italian
+Harry Potter
+XQuery Kick Start
+Learning XML
+Everyday Italian
+  -->
+
+  <body>
+    <p id="demo"></p>
+
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          myFunction(this);
+        }
+      };
+      xhttp.open("GET", "books.xml", true);
+      xhttp.send();
+
+      function myFunction(xml) {
+        var text = "";
+        var xmlDoc = xml.responseXML;
+        var x = xmlDoc.getElementsByTagName("book")[0];
+        var y = xmlDoc.documentElement;
+        var cloneNode = x.cloneNode(true);
+        y.appendChild(cloneNode);
+
+        var z = xmlDoc.getElementsByTagName("title");
+        var zLen = z.length;
+        for (let i = 0; i < zLen; i++) {
+          text += `${z[i].childNodes[0].nodeValue} <br>`;
+        }
+
+        console.log(text);
+        document.getElementById("demo").innerHTML = text;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>target Event Property</title>
+</head>
+<!-- 
+HTML DOM Events
+Click on any elements in this document to find out which element triggered the onclick event.
+
+
+BUTTON
+ -->
+<body onclick="myFunction(event)" style="border: 1px solid black; padding: 8px;">
+    <h1>HTML DOM Events</h1>
+    <h2>The target Property</h2>
+
+    <p>Click on any elements in this document to find out which element triggered the onclick event.</p>
+
+    <button id="myBtn">This is a button</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction(event) {
+            let text = event.target.tagName;
+            document.getElementById("demo").innerHTML = text;
+        }
+    </script>
+</body>
+</html>
